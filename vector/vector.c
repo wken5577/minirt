@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vector.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyunkyle <hyunkyle@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hyunkyu <hyunkyu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 11:30:00 by hyunkyle          #+#    #+#             */
-/*   Updated: 2022/12/26 12:45:16 by hyunkyle         ###   ########.fr       */
+/*   Updated: 2022/12/27 13:38:36 by hyunkyu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,13 @@ t_vec	vec(double x, double y, double z)
 	return (out);
 }
 
-double	length(t_vec *vec)
-{
-	return (sqrt(length_squared(vec)));
-}
-
 static double	length_squared(t_vec *vec)
 {
 	return (vec->x * vec->x + vec->y * vec->y + vec->z * vec->z);
 }
+
+double	vec_length(t_vec *vec)
+{
+	return (sqrt(length_squared(vec)));
+}
+

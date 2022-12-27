@@ -3,13 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hyunkyle <hyunkyle@student.42.fr>          +#+  +:+       +#+         #
+#    By: hyunkyu <hyunkyu@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/06 10:50:54 by hyunkyle          #+#    #+#              #
-#    Updated: 2022/12/26 19:43:52 by hyunkyle         ###   ########.fr        #
+#    Updated: 2022/12/27 12:00:01 by hyunkyu          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+					  
+SRCS				= ft_atoi.c \
+					  ft_atof.c \
 					  ft_bzero.c \
 					  ft_calloc.c \
 					  ft_isalnum.c \
@@ -46,6 +49,7 @@
 					  ft_strcmp.c \
 					  ft_strs_size.c \
 					  ft_print_exit.c \
+					  ft_release_strs.c \
 
 BNS_SRCS				= ft_lstsize.c \
 					  ft_lstadd_back.c \
@@ -67,16 +71,17 @@ endif
 
 FLAGS = -Wall -Wextra -Werror
 
-CC = gcc
+CC = cc
 
 NAME = libft.a
 
-$(NAME)	: $(OBJS)
-	ar -rc $(NAME) $(OBJS)
-.c.o :
+all	: $(NAME)
+
+%.o	:%.c
 	$(CC) -o $@ -c $< -I libft.h
 
-all	: $(NAME)
+$(NAME)	: $(OBJS)
+	ar -rc $(NAME) $(OBJS)
 
 bonus :
 	make BONUS=1 all

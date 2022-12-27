@@ -3,13 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyunkyle <hyunkyle@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: hyunkyu <hyunkyu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 16:53:11 by hyunkyle          #+#    #+#             */
-/*   Updated: 2022/07/14 17:55:21 by hyunkyle         ###   ########.fr       */
+/*   Updated: 2022/12/27 12:03:54 by hyunkyu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdlib.h>
+
 #include <unistd.h>
 #include "get_next_line_bonus.h"
 
@@ -68,18 +68,18 @@ char	*make_result(t_file *file_node, char *str, int s_len)
 	if (str == 0)
 	{
 		result = malloc (sizeof(char) * (len + 2));
-		ft_strlcpy(result, file_node->buffer, len + 2);
+		ft_strlcpy1(result, file_node->buffer, len + 2);
 	}
 	else
 	{
 		while (str[s_len] != 0)
 			s_len++;
 		result = malloc(sizeof(char) * (s_len + file_node->size + 1));
-		ft_strlcpy(result, str, s_len + 1);
+		ft_strlcpy1(result, str, s_len + 1);
 		ft_cat_str(result, file_node->buffer, s_len + len + 1);
 		free(str);
 	}
-	ft_substr(file_node->buffer, len + 1, file_node->size - len - 1,
+	ft_substr1(file_node->buffer, len + 1, file_node->size - len - 1,
 		file_node->size);
 	file_node->cnt_newline = file_node->cnt_newline - 1;
 	file_node->size = file_node->size - len - 1;
@@ -122,7 +122,7 @@ char	*get_next_line(int fd)
 	t_file			*tmp;
 
 	if (!head)
-		head = ft_lstnew(fd);
+		head = ft_lstnew1(fd);
 	file_node = 0;
 	tmp = head;
 	while (tmp)
@@ -133,7 +133,7 @@ char	*get_next_line(int fd)
 	}
 	if (file_node == 0)
 	{
-		file_node = ft_lstnew(fd);
+		file_node = ft_lstnew1(fd);
 		tmp = head;
 		while (tmp->next)
 			tmp = tmp->next;

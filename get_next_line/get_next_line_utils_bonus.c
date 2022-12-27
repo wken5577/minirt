@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyunkyle <hyunkyle@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: hyunkyu <hyunkyu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 18:03:20 by hyunkyle          #+#    #+#             */
-/*   Updated: 2022/07/18 10:00:07 by hyunkyle         ###   ########.fr       */
+/*   Updated: 2022/12/27 13:18:59 by hyunkyu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 #include <stdlib.h>
 
-void	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+void	ft_strlcpy1(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
 
@@ -29,11 +29,9 @@ void	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 
 void	ft_cat_str(char *result, char *buffer, size_t size)
 {
-	size_t	i;
 	size_t	len;
 	size_t	idx;
 
-	i = 0;
 	len = 0;
 	idx = 0;
 	while (result[len] != 0)
@@ -47,7 +45,7 @@ void	ft_cat_str(char *result, char *buffer, size_t size)
 	result[len] = 0;
 }
 
-void	ft_substr(char *s, unsigned int start, size_t len, size_t s_len)
+void	ft_substr1(char *s, unsigned int start, size_t len, size_t s_len)
 {
 	size_t	i;
 
@@ -71,20 +69,20 @@ char	*fill_str(t_file *file_node, char *str)
 	if (str == 0)
 	{
 		result = malloc (sizeof(char) * (file_node->size + 1));
-		ft_strlcpy(result, file_node->buffer, file_node->size + 1);
+		ft_strlcpy1(result, file_node->buffer, file_node->size + 1);
 		return (result);
 	}
 	s_len = 0;
 	while (str[s_len] != 0)
 		s_len++;
 	result = malloc (sizeof(char) * (file_node->size + s_len + 1));
-	ft_strlcpy(result, str, s_len + 1);
+	ft_strlcpy1(result, str, s_len + 1);
 	free(str);
 	ft_cat_str(result, file_node->buffer, s_len + file_node->size);
 	return (result);
 }
 
-t_file	*ft_lstnew(int fd)
+t_file	*ft_lstnew1(int fd)
 {
 	t_file	*node;
 

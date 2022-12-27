@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mini_rt.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyunkyle <hyunkyle@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hyunkyu <hyunkyu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 16:07:57 by hyunkyle          #+#    #+#             */
-/*   Updated: 2022/12/26 19:24:20 by hyunkyle         ###   ########.fr       */
+/*   Updated: 2022/12/27 15:41:13 by hyunkyu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,14 @@
 # define MINI_RT_H
 
 # include "./vector/vector.h"
+# include <stdlib.h>
 
 typedef struct s_node	t_node;
 
 typedef enum t_data_type
 {
 	SPHERE = 0,
-	PLAIN,
+	PLANE,
 	CYLINDER,
 }	t_data_type;
 
@@ -64,13 +65,14 @@ typedef struct s_camera
 {
 	t_vec	coordinates;
 	t_vec	nor_vector;
-	int		range;
+	int		fov;
 }	t_camera;
 
 typedef struct s_light
 {
 	t_vec	coordinates;
 	double	ratio_in_range;
+	int		color_range;
 }	t_light;
 
 typedef struct s_info_data
@@ -81,5 +83,6 @@ typedef struct s_info_data
 	t_node			*materials;
 }	t_info_data;
 
-
+void    node_add_back(t_node **lst, t_node *new);
+t_node  *node_new(void *data, t_data_type type);
 #endif

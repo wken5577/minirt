@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   vector.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyunkyle <hyunkyle@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hyunkyu <hyunkyu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 11:28:47 by hyunkyle          #+#    #+#             */
-/*   Updated: 2022/12/26 12:44:37 by hyunkyle         ###   ########.fr       */
+/*   Updated: 2022/12/27 13:38:15 by hyunkyu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef VECTOR_H
 # define VECTOR_H
+
+#include <math.h>
 
 typedef struct s_vec
 {
@@ -25,7 +27,6 @@ t_vec	vec_add(t_vec *v1, t_vec *v2);
 t_vec	vec_sub(t_vec *v1, t_vec *v2);
 t_vec	vec_mul(t_vec *v1, double t);
 t_vec	vec_div(t_vec *v1, double t);
-double	length(t_vec *vec);
-
+double	vec_length(t_vec *vec);
 
 #endif

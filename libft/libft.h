@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyunkyle <hyunkyle@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hyunkyu <hyunkyu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 10:52:13 by hyunkyle          #+#    #+#             */
-/*   Updated: 2022/12/26 19:43:36 by hyunkyle         ###   ########.fr       */
+/*   Updated: 2022/12/27 13:20:02 by hyunkyu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
+void    ft_release_strs(char **strs);
 int		ft_strs_size(char **strs);
 int		ft_strcmp(const char *s1, const char *s2);
 int		ft_isalpha(int c);
@@ -46,6 +47,7 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 void	*ft_calloc(size_t count, size_t size);
 int		ft_atoi(const char *str);
+double	ft_atof(const char *str);
 char	*ft_strdup(const char *s1);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
